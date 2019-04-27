@@ -6,9 +6,9 @@ function update() {
 
         setTimeout(() => {
 
-            this.load('demo');
+            this.load('main');
 
-        }, 3000);
+        }, 0);
 
         this.state.redirect = true;
     }

@@ -11,8 +11,7 @@ new Theatre({
     'scenes': scenes,
     'sharp': true,
     'size': {
-
         'width': 320,
-        'height': 288
+        'height': 530
     }
 });
