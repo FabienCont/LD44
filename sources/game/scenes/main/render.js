@@ -4,21 +4,27 @@ import {renderBackground} from 'systems/main/renderBackground.js';
 import {renderCoin} from 'systems/main/renderCoin.js';
 import {renderStat} from 'systems/main/renderStat.js';
 
+import {images} from 'systems/common/images.js';
+
 import {renderJobname} from 'systems/main/renderJobname.js';
 
 function render() {
 
     // console.log('render demo scene');
 
-    this.context.fillStyle = '#d7dae0';
+    this.context.fillStyle = '#444444';
     this.context.fillRect(0, 0, this.size.width, this.size.height);
+    this.context.strokeStyle = "black";
+    this.context.strokeRect(0, 0, this.size.width, this.size.height);
 
     this.world.system(['background','hitbox','position'], renderBackground);
     this.world.system(['text','position'], renderText);
     this.world.system(['question','position'], renderQuestion);
+    this.world.system(['images','position'], images);
     this.world.system(['background','stat','hitbox','position'], renderStat);
     this.world.system(['background','coin','hitbox','position'], renderCoin);
     this.world.system(['jobname','hitbox','position'], renderJobname);
+
 
 
 }

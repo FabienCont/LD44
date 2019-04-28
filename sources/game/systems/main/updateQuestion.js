@@ -32,7 +32,6 @@ function updateQuestion(entity) {
       yes=new Entity('yes', [
           new Position(60,465),
           new Hitbox(80,60),
-          new Background("green"),
           new Text('Yes','black'),
           new Clickable(()=> {
             var mainEntities=this.state.mainEntities;
@@ -94,7 +93,6 @@ function updateQuestion(entity) {
       no=new Entity('no', [
           new Position(180,465),
           new Hitbox(80,60),
-          new Background("orange"),
           new Text('No','black'),
           new Clickable(()=>{
               this.state.questions.forEach((entity)=>{this.world.remove(entity)});

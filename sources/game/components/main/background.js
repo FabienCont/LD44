@@ -1,7 +1,8 @@
-function Background(color) {
+function Background(color,border) {
 
     this.name = 'background';
     this.color = color;
+    this.border=border;
 }
 
 export {Background};

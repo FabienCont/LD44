@@ -4,9 +4,11 @@ function render() {
 
     // console.log('render ending scene');
 
-    this.context.fillStyle = '#181a1f';
+    this.context.fillStyle = '#444444';
     this.context.fillRect(0, 0, this.size.width, this.size.height);
-
+    this.context.strokeStyle = "black";
+    this.context.strokeRect(0, 0, this.size.width, this.size.height);
+    this.context.lineWidth = 2;
 
 
     this.context.textAlign = 'center';

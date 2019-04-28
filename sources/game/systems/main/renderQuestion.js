@@ -5,10 +5,10 @@ function renderQuestion(entity) {
      const hitboxComponent = entity.get ('hitbox');
 
     this.context.lineWidth = 2;
-    this.context.font="bold 20px Arial";
-    this.context.textAlign = 'center';
-    this.context.textBaseline = 'middle';
-    this.context.fillStyle="black";
+        this.context.textAlign = 'center';
+        this.context.textBaseline = 'middle';
+        this.context.font = '20px Courier New';
+        this.context.fillStyle = '#d7dae0';
     if(questionComponent.text.length>20){
         var phrases=questionComponent.text.split(' ');
         var middle=Math.ceil(phrases.length/2);

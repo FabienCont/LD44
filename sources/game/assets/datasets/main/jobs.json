@@ -3,7 +3,7 @@
   "id":"farmer",
   "type":"currency",
   "coin":{
-      "addValue":1
+      "addVal":2
   },
   "actions":[{
     "type":"hunger",
@@ -15,7 +15,7 @@
     "id":"fastfood",
     "type":"hunger",
     "stat":{
-        "addValue":1,
+        "addVal":1,
         "price":1,
         "decreaseVal":3
     },
@@ -33,7 +33,7 @@
     "id":"basic bed",
     "type":"sleep",
     "stat":{
-        "addValue":1,
+        "addVal":1,
         "price":1,
         "decreaseVal":3
     }
@@ -42,7 +42,7 @@
     "id":"dancer",
     "type":"social",
     "stat":{
-        "addValue":1,
+        "addVal":3,
         "price":10,
         "decreaseVal":3
     },
