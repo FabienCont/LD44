@@ -6,7 +6,7 @@ function update() {
 
         setTimeout(() => {
 
-            this.load('main');
+            this.load('splashscreen');
 
         }, 0);
 

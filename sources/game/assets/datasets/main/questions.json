@@ -1,0 +1,24 @@
+[
+  {
+    "id":0,
+    "text":"Do you want to start a new life?",
+    "callbackType":"job",
+    "callback":"farmer",
+    "nextStep":1
+  },
+  {
+    "id":1,
+    "text":"Wanna dance with me ?",
+    "callbackType":"job",
+    "callback":"dancer",
+    "nextStep":2
+  },
+  {
+    "id":2,
+    "text":"Let's take some good wing's at CFK?",
+    "callbackType":"job",
+    "callback":"fastfood",
+    "nextStep":3
+  }
+
+]

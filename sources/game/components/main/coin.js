@@ -6,7 +6,7 @@ function Coin(val,addVal=1) {
     this.add=function(){
       this.val=this.val+this.addVal;
     }
-    this.buy=function(price){
+    this.decrease=function(price){
       this.val=this.val-price
     }
 }
