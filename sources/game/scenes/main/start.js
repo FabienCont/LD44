@@ -64,8 +64,9 @@ function start() {
             'destination': [100, 153, 0, 20, 20]
         }]),
         new Clickable((entity,x,y)=>{
-          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").val)]));
+          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").addVal)]));
 
+          this.world.add(new Entity('animation', [new Animate("currency",x+20,y+20,entity.get("stat").price)]));
           entity.get("stat").add();
           currency.get("coin").decrease(entity.get("stat").price)
         }),
@@ -111,8 +112,9 @@ function start() {
         new Clickable((entity,x,y)=>{
           entity.get("stat").add();
           currency.get("coin").decrease(entity.get("stat").price);
-          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").val)]));
+          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").addVal)]));
 
+          this.world.add(new Entity('animation', [new Animate("currency",x+20,y+20,entity.get("stat").price)]));
         }),
         new Activate()
       ]);
@@ -157,8 +159,9 @@ function start() {
           }]),
         new Clickable((entity,x,y)=>{
 
-          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").val)]));
+          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").addVal)]));
 
+                    this.world.add(new Entity('animation', [new Animate("currency",x+20,y+20,entity.get("stat").price)]));
           entity.get("stat").add();
           currency.get("coin").decrease(entity.get("stat").price)
         }),
@@ -210,7 +213,7 @@ function start() {
                 'destination': [5, 155, 0, 20, 30]
             }]),
         new Clickable((entity,x,y)=>{
-          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("coin").val)]));
+          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("coin").addVal)]));
 
           entity.get("coin").add();
           social.get("stat").decrease();

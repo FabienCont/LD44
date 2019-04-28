@@ -62,9 +62,11 @@ function updateQuestion(entity) {
                 entity.add([
                     new Clickable((entity,x,y)=>{
 
-                      this.world.add(new Entity('animation', [new Animate(entity.name,x,y, entity.get("stat").val)]));
+                      this.world.add(new Entity('animation', [new Animate(entity.name,x,y, entity.get("stat").addVal)]));
                       var text ="-"+entity.get("stat").price;
-                      this.world.add(new Entity('animation', [new Animate("currency",x,y,text)]));
+                      this.world.add(new Entity('animation', [new Animate("currency",x-15,y+20,text)]));
+                      var offset=10;
+                      var multiple=-1;
 
                       entity.get("stat").add();
                       var currency=mainEntities.find((entity)=>{
@@ -81,8 +83,10 @@ function updateQuestion(entity) {
                             if(action.nameFunction=="decrease"){
                               text+="-";
                             }
-                             this.world.add(new Entity('animation', [new Animate( entityInAction.name,x,y, text+=action.value)]));
-                          })
+                            multiple=multiple*multiple;
+                            offset+=offset;
+                            this.world.add(new Entity('animation', [new Animate( entityInAction.name,x+(offset*multiple),y+(offset*multiple), action.value)]));
+                            })
                       }
                     })
                 ])
@@ -91,8 +95,10 @@ function updateQuestion(entity) {
                     new Clickable((entity,x,y)=>{
                       entity.get("coin").add();
 
-                      this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("coin").val)]));
+                      this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("coin").addVal)]));
                       if(job.actions){
+                          var offset=10
+                          var multiple=-1;
                           job.actions.forEach((action)=>{
                             var entityInAction=mainEntities.find((entity)=>entity.name===action.type)
                             if(entityInAction.get('coin')) entityInAction.get('coin')[action.nameFunction](action.value);
@@ -101,7 +107,11 @@ function updateQuestion(entity) {
                             if(action.nameFunction=="decrease"){
                               text+="-";
                             }
-                            this.world.add(new Entity('animation', [new Animate( entityInAction.name,x,y, action.value)]));
+
+                            multiple=multiple*multiple;
+                            offset+=offset;
+                            this.world.add(new Entity('animation', [new Animate( entityInAction.name,x+(offset*multiple),y+(offset*multiple), action.value)]));
+
                           })
                       }
                     })

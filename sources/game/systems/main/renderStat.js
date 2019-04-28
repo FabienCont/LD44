@@ -32,6 +32,6 @@ function renderStat(entity) {
       this.context.fillText("+"+statComponent.addVal, positionComponent.x+2, positionComponent.y+10);
       this.context.stroke();
 
-      
+
 }
 export {renderStat};

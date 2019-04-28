@@ -14,7 +14,7 @@ import {Clickable} from 'components/main/clickable.js';
 import {Activate} from 'components/main/activate.js';
 import {Actions} from 'components/main/actions.js';
 import {Border} from 'components/main/border.js';
-
+import {MiniText} from 'components/main/MiniText.js';
 function animateGenerator(entity) {
 
     const animateComponent = entity.get('animate');
@@ -48,6 +48,7 @@ function animateGenerator(entity) {
               'destination': animateTranslate[animateComponent.related].destination
             }]),
           new Position(animateComponent.x,animateComponent.y,0),
+          new MiniText(animateComponent.text),
           new Force(0, -75, 1000, Ease.easeOut(5), jumpEnding)
         ]))
 
