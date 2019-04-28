@@ -1,6 +1,6 @@
-function Stat(id,val,addVal=1,price=1,decreaseVal=1,duration=500,max=100) {
+function Cost(id,val,addVal=1,price=1,decreaseVal=1,duration=500,max=100) {
 
-    this.name='stat';
+    this.name='cost';
     this.id=id;
     this.val=val;
     this.max=max;
@@ -27,4 +27,4 @@ function Stat(id,val,addVal=1,price=1,decreaseVal=1,duration=500,max=100) {
     }
 }
 
-export {Stat};
+export {Cost};

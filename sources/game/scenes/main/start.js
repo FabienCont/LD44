@@ -12,8 +12,8 @@ import {Stat} from 'components/main/Stat.js';
 import {Coin} from 'components/main/coin.js';
 import {Activate} from 'components/main/activate.js';
 import {Jobname} from 'components/main/jobname.js';
-
-
+import {MainEntity} from 'components/main/mainEntity.js';
+import {Animate} from 'components/main/animate.js';
 function start() {
 
     console.log('start demo scene');
@@ -27,6 +27,7 @@ function start() {
     ]);
 
     hunger=new Entity('hunger', [
+        new MainEntity(),
         new Position(15,15),
         new Hitbox(145,180),
         new Background("#664e11"),
@@ -39,9 +40,32 @@ function start() {
                 [0, 0, 300, 300]
             ],
             'frame': 0,
-            'destination': [20, 40, 0, 100, 150]
+            'destination': [20, 20, 0, 100, 150]
+        },{
+            'source': this.assets.images.common.zzz(),
+            'frames': [
+                [0, 0, 200, 200]
+            ],
+            'frame': 0,
+            'destination': [50, 150, 0, 25, 25]
+        },{
+            'source': this.assets.images.common.coin(),
+            'frames': [
+                [0, 0, 100, 100]
+            ],
+            'frame': 0,
+            'destination': [5, 155, 0, 15, 15]
+        },{
+            'source': this.assets.images.common.disco(),
+            'frames': [
+                [0, 0, 300, 300]
+            ],
+            'frame': 0,
+            'destination': [100, 153, 0, 20, 20]
         }]),
-        new Clickable((entity)=>{
+        new Clickable((entity,x,y)=>{
+          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").val)]));
+
           entity.get("stat").add();
           currency.get("coin").decrease(entity.get("stat").price)
         }),
@@ -49,6 +73,7 @@ function start() {
     ]);
 
     sleep=new Entity('sleep', [
+        new MainEntity(),
         new Position(160,15),
         new Hitbox(145,180),
         new Jobname(),
@@ -59,17 +84,42 @@ function start() {
                 [0, 0, 200, 200]
             ],
             'frame': 0,
-            'destination': [20, 45, 0, 110, 110]
+            'destination': [20, 17, 0, 110, 110]
+          },{
+              'source': this.assets.images.common.burger(),
+              'frames': [
+                  [0, 0, 300, 300]
+              ],
+              'frame': 0,
+              'destination': [50, 150, 0, 20, 30]
+          },{
+              'source': this.assets.images.common.coin(),
+              'frames': [
+                  [0, 0, 100, 100]
+              ],
+              'frame': 0,
+              'destination': [5, 155, 0, 15, 15]
+          },{
+              'source': this.assets.images.common.disco(),
+              'frames': [
+                  [0, 0, 300, 300]
+              ],
+              'frame': 0,
+              'destination': [100, 153, 0, 20, 20]
           }]),
         new Stat('sleep',100,1,1,1,1000),
-        new Clickable((entity)=>{
+        new Clickable((entity,x,y)=>{
           entity.get("stat").add();
-          currency.get("coin").decrease(entity.get("stat").price)
+          currency.get("coin").decrease(entity.get("stat").price);
+          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").val)]));
+
         }),
         new Activate()
       ]);
 
     social=new Entity('social', [
+
+        new MainEntity(),
         new Position(15,195),
         new Hitbox(145,180),
         new Background("#363636"),
@@ -81,9 +131,34 @@ function start() {
                 [0, 0, 300, 300]
             ],
             'frame': 0,
-            'destination': [10,30, 0, 120, 120]
+            'destination': [10,15, 0, 110, 110]
+          },{
+
+              'source': this.assets.images.common.zzz(),
+              'frames': [
+                  [0, 0, 200, 200]
+              ],
+              'frame': 0,
+              'destination': [50, 150, 0, 25, 25]
+          },{
+              'source': this.assets.images.common.coin(),
+              'frames': [
+                  [0, 0, 100, 100]
+              ],
+              'frame': 0,
+              'destination': [5, 155, 0, 15, 15]
+          },{
+              'source': this.assets.images.common.burger(),
+              'frames': [
+                  [0, 0, 300, 300]
+              ],
+              'frame': 0,
+              'destination': [100, 153, 0, 20, 30]
           }]),
-        new Clickable((entity)=>{
+        new Clickable((entity,x,y)=>{
+
+          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").val)]));
+
           entity.get("stat").add();
           currency.get("coin").decrease(entity.get("stat").price)
         }),
@@ -91,6 +166,8 @@ function start() {
     ]);
 
     currency=new Entity('currency', [
+
+        new MainEntity(),
         new Position(160,195),
         new Hitbox(145,180),
         new Background("#ab8d25"),
@@ -102,7 +179,7 @@ function start() {
                 [0, 0, 100, 100]
             ],
             'frame': 0,
-            'destination': [37,55, 0, 75, 75]
+            'destination': [37,35, 0, 75, 75]
           },{
               'source': this.assets.images.common.coin(),
               'frames': [
@@ -110,8 +187,31 @@ function start() {
               ],
               'frame': 0,
               'destination': [120,10, 0, 20, 20]
+            },{
+                'source': this.assets.images.common.zzz(),
+                'frames': [
+                    [0, 0, 200, 200]
+                ],
+                'frame': 0,
+                'destination': [50, 150, 0, 25, 25]
+            },{
+                'source': this.assets.images.common.disco(),
+                'frames': [
+                    [0, 0, 300, 300]
+                ],
+                'frame': 0,
+                'destination': [100, 153, 0, 23, 23]
+            },{
+                'source': this.assets.images.common.burger(),
+                'frames': [
+                    [0, 0, 300, 300]
+                ],
+                'frame': 0,
+                'destination': [5, 155, 0, 20, 30]
             }]),
-        new Clickable((entity)=>{
+        new Clickable((entity,x,y)=>{
+          this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("coin").val)]));
+
           entity.get("coin").add();
           social.get("stat").decrease();
         }),

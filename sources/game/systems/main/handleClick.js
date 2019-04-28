@@ -18,7 +18,9 @@ function handleClick(entity) {
 
             if (collide(mouse, hitbox) === true) {
 
-                clickComponent.action(entity);
+                  this.state.inputs.length = 0;
+                clickComponent.action(entity,input.x, input.y);
+
             }
         }
     });

@@ -24,8 +24,6 @@ function renderStat(entity) {
       this.context.fillStyle = 'red';
       this.context.fillRect(positionComponent.x -marginStatbarMarginValue+ hitboxComponent.width-widthStatbar-marginRight, positionComponent.y+marginTop,widthStatbarValue, heightStatbar);
 
-
-
      this.context.font = '15px Courier New';
       this.context.fillStyle = 'white';
       this.context.textAlign = 'left';
@@ -33,5 +31,7 @@ function renderStat(entity) {
 
       this.context.fillText("+"+statComponent.addVal, positionComponent.x+2, positionComponent.y+10);
       this.context.stroke();
+
+      
 }
 export {renderStat};

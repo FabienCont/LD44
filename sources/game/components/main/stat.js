@@ -1,4 +1,4 @@
-function Stat(id,val,addVal=1,price=1,decreaseVal=1,duration=500,max=100) {
+function Stat(id,val,addVal=1,price=1,decreaseVal=1,duration=500,max=100,actions) {
 
     this.name='stat';
     this.id=id;
@@ -9,6 +9,7 @@ function Stat(id,val,addVal=1,price=1,decreaseVal=1,duration=500,max=100) {
     this.elapsed=0;
     this.duration=duration,
     this.decreaseVal=1;
+
     this.add=function(addVal){
 
       if(!addVal)addVal=this.addVal;
