@@ -8,6 +8,8 @@ import {renderJobname} from 'systems/main/renderJobname.js';
 import {renderBorder} from 'systems/main/renderBorder.js';
 import {renderActivation} from 'systems/main/renderActivation.js'
 
+import {renderActivationNo} from 'systems/main/renderActivationNo.js'
+
 import {renderMiniText} from 'systems/main/renderMiniText.js';
 
 
@@ -35,7 +37,9 @@ function render() {
     this.camera.render();
     this.world.system(['minitext','position'], renderMiniText);
 
+
     this.world.system(['border','hitbox','position'], renderBorder);
+    this.world.system(['text','position','hitbox','border'], renderActivationNo);
     this.world.system(['mainEntity','hitbox','position'], renderActivation);
 
 

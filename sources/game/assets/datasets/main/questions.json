@@ -65,7 +65,6 @@
   },
   {
     "id":0,
-    "forceYes":true,
     "text":"Do you want to start a new life?",
     "callbackType":"job",
     "callback":"farmer",
