@@ -28,7 +28,7 @@ function animateGenerator(entity) {
 
       const jumpEnding = (entity, elapsed) => {
 
-          entity.add([new Force(0, 75, 1000, Ease.easeIn(3), fallEnding)]);
+          entity.add([new Force(0, 50, 1000, Ease.easeIn(3), fallEnding)]);
           entity.get('force').elapsed += elapsed;
       };
       var animateTranslate=
@@ -49,7 +49,7 @@ function animateGenerator(entity) {
             }]),
           new Position(animateComponent.x,animateComponent.y,0),
           new MiniText(animateComponent.text),
-          new Force(0, -75, 1000, Ease.easeOut(5), jumpEnding)
+          new Force(0, -50, 1000, Ease.easeOut(5), jumpEnding)
         ]))
 
         this.world.remove(entity);

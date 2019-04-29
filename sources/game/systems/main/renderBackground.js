@@ -7,10 +7,6 @@ function renderBackground(entity) {
 
      this.context.fillStyle = backgroundComponent.color;
      this.context.fillRect(positionComponent.x, positionComponent.y, hitboxComponent.width, hitboxComponent.height);
-     if(backgroundComponent.border){
 
-        this.context.strokeStyle = "green";
-        this.context.strokeRect(positionComponent.x, positionComponent.y, hitboxComponent.width, hitboxComponent.height);
-     }
 }
 export {renderBackground};

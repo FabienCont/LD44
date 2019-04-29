@@ -11,7 +11,7 @@ function update() {
     this.world.system(['stat','activate'], checkStat);
     this.world.system(['coin','activate'], checkCoin);
 
-    this.world.system(['hitbox','position','clickable'], handleClick);
+    this.world.system(['hitbox','position','clickable','activate'], handleClick);
 
     this.world.system(['animate'], animateGenerator);
 

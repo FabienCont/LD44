@@ -20,6 +20,7 @@ function start() {
 
     this.world = new World(this);
     this.state.step=0;
+    this.state.score={"coin":{"loose":0,"earn":0},"hunger":{"loose":0,"earn":0},"sleep":{"loose":0,"earn":0},"social":{"loose":0,"earn":0}}
     var hunger,sleep,social,currency,questionGenerator={};
 
     questionGenerator=new Entity('questionGenerator', [
@@ -32,7 +33,7 @@ function start() {
         new Hitbox(145,180),
         new Background("#664e11"),
         //new Text('Burger','yellow'),
-        new Stat('hunger',100,2,5,1,500),
+        new Stat('hunger',100,2,5,1,800),
         new Jobname(),
         new Images([{
             'source': this.assets.images.common.burger(),
@@ -66,11 +67,11 @@ function start() {
         new Clickable((entity,x,y)=>{
           this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").addVal)]));
 
-          this.world.add(new Entity('animation', [new Animate("currency",x+20,y+20,entity.get("stat").price)]));
+          this.world.add(new Entity('animation', [new Animate("currency",x+20,y+20,'-'+entity.get("stat").price)]));
           entity.get("stat").add();
           currency.get("coin").decrease(entity.get("stat").price)
-        }),
-        new Activate()
+        })/*,
+        new Activate()*/
     ]);
 
     sleep=new Entity('sleep', [
@@ -114,9 +115,9 @@ function start() {
           currency.get("coin").decrease(entity.get("stat").price);
           this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").addVal)]));
 
-          this.world.add(new Entity('animation', [new Animate("currency",x+20,y+20,entity.get("stat").price)]));
-        }),
-        new Activate()
+          this.world.add(new Entity('animation', [new Animate("currency",x+20,y+20,'-'+entity.get("stat").price)]));
+        })/*,
+        new Activate()*/
       ]);
 
     social=new Entity('social', [
@@ -161,11 +162,11 @@ function start() {
 
           this.world.add(new Entity('animation', [new Animate(entity.name,x,y,entity.get("stat").addVal)]));
 
-                    this.world.add(new Entity('animation', [new Animate("currency",x+20,y+20,entity.get("stat").price)]));
+                    this.world.add(new Entity('animation', [new Animate("currency",x+20,y+20,'-'+entity.get("stat").price)]));
           entity.get("stat").add();
           currency.get("coin").decrease(entity.get("stat").price)
-        }),
-        new Activate()
+        })/*,
+        new Activate()*/
     ]);
 
     currency=new Entity('currency', [
@@ -217,8 +218,8 @@ function start() {
 
           entity.get("coin").add();
           social.get("stat").decrease();
-        }),
-        new Activate()
+        })/*,
+        new Activate()*/
     ]);
 
     var entities=[hunger,sleep,social,currency];

@@ -7,7 +7,7 @@ function renderQuestion(entity) {
     this.context.lineWidth = 2;
         this.context.textAlign = 'center';
         this.context.textBaseline = 'middle';
-        this.context.font = '20px Courier New';
+        this.context.font = '16px Courier New';
         this.context.fillStyle = '#d7dae0';
     if(questionComponent.text.length>20){
         var phrases=questionComponent.text.split(' ');

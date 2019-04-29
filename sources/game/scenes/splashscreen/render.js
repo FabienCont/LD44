@@ -16,7 +16,11 @@ function render() {
     this.context.font = '20px Courier New';
 
     this.context.fillStyle = '#d7dae0';
-    this.context.fillText('Life is the currency', this.size.width/2, this.size.height/4);
+    this.context.fillText('Life is the currency', this.size.width/2, this.size.height/4-15);
+
+    this.context.font = '18px Courier New';
+
+    this.context.fillText('Try to survive', this.size.width/2, this.size.height/4+15);
     this.context.font = '16px Courier New';
 
         this.context.textAlign = 'center';
@@ -24,6 +28,7 @@ function render() {
 
         this.context.font = '16px Arial';
 
+            this.context.fillText('Click to', this.size.width/2, this.size.height/2+90);
     this.context.fillText('insert the coin', this.size.width/2, this.size.height/2+110);
 
     this.world.system(['images','position'], images);

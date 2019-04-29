@@ -17,12 +17,19 @@ function updateQuestion(entity) {
 
 
   const createQuestion=(step)=>{
-
+    this.state.step=step
     var jobs=this.assets.datasets.main.jobs();
     var questions=this.assets.datasets.main.questions();
 
-    var question=questions.filter((question)=> question.id===step)[0];
-    var job=jobs.filter((job)=>job.id=== question.callback)[0];
+    var question=questions.filter((question)=> question.id===step);
+    if(question.length<1){
+
+        var randomStep =Math.floor(Math.random() * (questions.length-1 - 0)) + 0;
+
+        createQuestion(randomStep);
+
+    }else {
+      question=question[0];
     var nextStep= question.nextStep;
     var text = question.text;
 
@@ -39,8 +46,12 @@ function updateQuestion(entity) {
           new Hitbox(80,60),
           new Border (),
           new Text('Yes','black'),
+          new Activate(),
           new Clickable(()=> {
             var mainEntities=this.state.mainEntities;
+
+            if(question.callbackType==="job"){
+            var job=jobs.filter((job)=>job.id=== question.callback)[0];
 
             var entity=mainEntities.find((entity)=>entity.name===job.type)
             entity.get("jobname").title=job.id;
@@ -60,11 +71,16 @@ function updateQuestion(entity) {
               }else entity.remove('actions');
               if(!job.coin){
                 entity.add([
+
+                    new Activate(),
                     new Clickable((entity,x,y)=>{
 
                       this.world.add(new Entity('animation', [new Animate(entity.name,x,y, entity.get("stat").addVal)]));
-                      var text ="-"+entity.get("stat").price;
-                      this.world.add(new Entity('animation', [new Animate("currency",x-15,y+20,text)]));
+                      var text=0;
+                      if(entity.get("stat").price>0) {
+                        text ="-"+entity.get("stat").price;
+                        this.world.add(new Entity('animation', [new Animate("currency",x-15,y+20,text)]));
+                      }
                       var offset=10;
                       var multiple=-1;
 
@@ -92,6 +108,7 @@ function updateQuestion(entity) {
                 ])
               }else {
                   entity.add([
+                    new Activate(),
                     new Clickable((entity,x,y)=>{
                       entity.get("coin").add();
 
@@ -117,13 +134,12 @@ function updateQuestion(entity) {
                     })
                 ])
               }
-
+            }
             this.state.questions.forEach((entity)=>{this.world.remove(entity)});
 
             createQuestion(question.nextStep);
           })
       ]);
-
       no=new Entity('no', [
           new Position(180,465),
           new Hitbox(80,60),
@@ -134,14 +150,23 @@ function updateQuestion(entity) {
                 createQuestion(question.nextStep);
           })
       ]);
+
+      if(!question.forceYes){
+        no.add([new Activate()]);
+      }
+
       this.state.questions=[questionEntity,yes,no];
 
       this.state.questions.forEach((entity)=>{this.world.add(entity)});
+    }
+  }
+  if(!this.state.questions && !this.state.step){
 
+    var questions=this.assets.datasets.main.questions();
+    createQuestion(questions[0].id);
+//    createQuestion(this.state.step);
   }
-  if(!this.state.questions ){
-    createQuestion(this.state.step);
-  }
+
 
 }
 

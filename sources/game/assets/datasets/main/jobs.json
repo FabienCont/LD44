@@ -12,6 +12,22 @@
   }]
   },
   {
+    "id":"studio",
+    "type":"sleep",
+    "stat":{
+        "addVal":1,
+        "price":1,
+        "decreaseVal":3
+    }
+  },
+  {
+  "id":"office employee",
+  "type":"currency",
+  "coin":{
+      "addVal":1
+  }
+  },
+  {
     "id":"fastfood",
     "type":"hunger",
     "stat":{

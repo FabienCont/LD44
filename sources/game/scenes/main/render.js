@@ -6,6 +6,7 @@ import {renderStat} from 'systems/main/renderStat.js';
 import {renderActions} from 'systems/main/renderActions.js';
 import {renderJobname} from 'systems/main/renderJobname.js';
 import {renderBorder} from 'systems/main/renderBorder.js';
+import {renderActivation} from 'systems/main/renderActivation.js'
 
 import {renderMiniText} from 'systems/main/renderMiniText.js';
 
@@ -29,11 +30,13 @@ function render() {
     this.world.system(['background','stat','hitbox','position'], renderStat);
     this.world.system(['background','coin','hitbox','position'], renderCoin);
     this.world.system(['jobname','hitbox','position'], renderJobname);
+    this.world.system(['mainEntity','hitbox','position'], renderActivation);
     this.world.system(['mainEntity','hitbox','position'], renderActions);
     this.camera.render();
     this.world.system(['minitext','position'], renderMiniText);
 
     this.world.system(['border','hitbox','position'], renderBorder);
+    this.world.system(['mainEntity','hitbox','position'], renderActivation);
 
 
 

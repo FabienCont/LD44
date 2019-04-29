@@ -1,6 +1,71 @@
 [
   {
+    "id":-8,
+    "forceYes":true,
+    "callbackType":"tuto",
+    "text":"All things have a cost, but most of them are necessities",
+    "callback":"",
+    "nextStep":-7
+  },
+  {
+    "id":-7,
+    "forceYes":true,
+    "text":"Do you want to eat something ? let's go to the fastfood",
+    "callbackType":"job",
+    "callback":"fastfood",
+    "nextStep":-6
+  },
+  {
+    "id":-6,
+    "forceYes":true,
+    "callbackType":"tuto",
+    "text":"you can click on the burger to buy food",
+    "callback":"",
+    "nextStep":-5
+  },
+  {
+    "id":-5,
+    "forceYes":true,
+    "text":"You need a work or you will finish starving or poor !",
+    "callbackType":"job",
+    "callback":"office employee",
+    "nextStep":-4
+  },
+  {
+    "id":-4,
+    "forceYes":true,
+    "text":"No you can start to work clicking on the coin.",
+    "callbackType":"tuto",
+    "callback":"",
+    "nextStep":-3
+  },
+  {
+    "id":-3,
+    "forceYes":true,
+    "text":"let's rent a studio to rest",
+    "callbackType":"job",
+    "callback":"studio",
+    "nextStep":-2
+  },
+  {
+    "id":-2,
+    "forceYes":true,
+    "text":"you look so sad, come with me to the disco hall!",
+    "callbackType":"job",
+    "callback":"dancer",
+    "nextStep":1
+  },
+  {
+    "id":-1,
+    "forceYes":true,
+    "text":"don't forget to have fun, or you will finish depressed.",
+    "callbackType":"tuto",
+    "callback":"",
+    "nextStep":1
+  },
+  {
     "id":0,
+    "forceYes":true,
     "text":"Do you want to start a new life?",
     "callbackType":"job",
     "callback":"farmer",

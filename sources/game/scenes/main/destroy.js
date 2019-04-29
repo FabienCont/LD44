@@ -3,7 +3,7 @@ function destroy() {
     console.log('destroy demo scene');
     console.log('-------');
 
-    this.state={};
+    //this.state={};
     delete this.world;
 }
 
